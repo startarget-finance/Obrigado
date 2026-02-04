@@ -1,25 +1,21 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/index.mjs",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": "dist/**"
-      }
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "dist/obrigado/browser",
+  "installCommand": "npm install",
+  "framework": null,
+  "functions": {
+    "api/server.mjs": {
+      "runtime": "nodejs20.x"
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/(.*\\.(js|css|ico|png|jpg|jpeg|svg|gif|woff|woff2|ttf|eot|json))",
-      "headers": {
-        "cache-control": "public, max-age=31536000, immutable"
-      },
-      "dest": "/dist/obrigado/browser/$1"
+      "source": "/(.*\\.(js|css|ico|png|jpg|jpeg|svg|gif|woff|woff2|ttf|eot|json))",
+      "destination": "/browser/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/api/index.mjs"
+      "source": "/(.*)",
+      "destination": "/api/server.mjs"
     }
   ]
 }
