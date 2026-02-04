@@ -1,21 +1,12 @@
 {
-  "buildCommand": "npm run vercel-build",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist/obrigado/browser",
   "installCommand": "npm install",
-  "framework": null,
-  "functions": {
-    "api/server.mjs": {
-      "runtime": "nodejs20.x"
-    }
-  },
+  "framework": "angular",
   "rewrites": [
     {
-      "source": "/(.*\\.(js|css|ico|png|jpg|jpeg|svg|gif|woff|woff2|ttf|eot|json))",
-      "destination": "/browser/$1"
-    },
-    {
       "source": "/(.*)",
-      "destination": "/api/server.mjs"
+      "destination": "/index.html"
     }
   ]
 }
