@@ -1,0 +1,12 @@
+<div class="space-y-4 mb-8">
+  @for (instruction of instructions; track instruction.number) {
+    <p 
+      class="text-lg text-gray-700"
+      [class.font-bold]="instruction.bold"
+      [class.underline]="instruction.underline"
+      [class.italic]="instruction.italic"
+    >
+      {{ instruction.number }} - {{ instruction.text }}
+    </p>
+  }
+</div>
