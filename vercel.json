@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/server.mjs",
+      "src": "api/index.mjs",
       "use": "@vercel/node",
       "config": {
         "includeFiles": "dist/**"
@@ -19,7 +19,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/api/server.mjs"
+      "dest": "/api/index.mjs"
     }
   ]
 }
